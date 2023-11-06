@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities.Location;
 
-public class Department
+public class Department : BaseEntity
 {
     public string Name { get; set; }
 
