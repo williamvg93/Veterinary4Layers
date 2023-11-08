@@ -17,7 +17,7 @@ public class ClientContact : BaseEntity
 
     [Required]
     public int IdClientFk { get; set; }
-    public Client Clients { get; set; }
+    public Client Client { get; set; }
 
     /* --------------------------------- */
 }

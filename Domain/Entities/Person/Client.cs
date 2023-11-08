@@ -19,8 +19,9 @@ public class Client : BaseEntity
 
     /* --------- Foreign Keys ---------- */
 
-    /* Relationship whit Addresses -> One to Many */
-    public ICollection<Address> Addresses { get; set; }
+    /* Relationship whit Addresses -> One to One */
+    public Address Address { get; set; }
+
     /* Relationship whit Contacts -> One to Many */
     public ICollection<ClientContact> ClientContacts { get; set; }
     /* Relationship whit Pets -> One to Many */
