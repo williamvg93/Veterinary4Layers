@@ -1,3 +1,6 @@
+using System.Reflection;
+using ApiVeterinary.Extensions;
+using AspNetCoreRateLimit;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Data;
 
@@ -10,6 +13,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+/* Add APlicationServiceExtensions */
+builder.Services.AddApplicationService();
+builder.Services.ConfigureCors();
+builder.Services.ConfigureRateLimiting();
+
+/* Add AutoMapper */
+builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 
 
 /* Add Connection to DB */
@@ -27,6 +37,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+app.UseCors("CorsPolicy");
+app.UseIpRateLimiting();
+
 
 app.UseHttpsRedirection();
 
